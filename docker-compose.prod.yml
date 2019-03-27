@@ -1,0 +1,23 @@
+version: '2'
+services:
+  app:
+    restart: always
+    image: ${DOCKER_REPO_NAME}:${COMPOSE_PROJECT_NAME}
+    container_name: ${COMPOSE_PROJECT_NAME}
+    expose:
+      - 80
+    env_file:
+      - .env
+    environment:
+      - APACHE_LOG_DIR=/var/www/logs
+    volumes:
+      - ${APP_LOG_DIR}:/var/www/logs
+    networks:
+      - neunerlei-traefik-pooh_webgateway
+    labels:
+      traefik.enable: "true"
+      traefik.frontend.rule: "Host:neunerlei.com"
+
+networks:
+  neunerlei-traefik-pooh_webgateway:
+    external: true

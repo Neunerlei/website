@@ -6,12 +6,9 @@ services:
     container_name: ${COMPOSE_PROJECT_NAME}
     depends_on:
       - data
-      - mysql
-      - import
     env_file:
       - .env
     environment:
-      - APP_MYSQL_HOST=${COMPOSE_PROJECT_NAME}-mysql
       - APACHE_LOG_DIR=/var/www/logs
     volumes:
       - ${APP_SSH_DIR}:/home/ssh-labor/.ssh
@@ -25,38 +22,12 @@ services:
       - data
     networks:
       - labor_infrastructure
-  mysql:
-    restart: 'no'
-    container_name: ${COMPOSE_PROJECT_NAME}-mysql
-    image: mysql:5
-    networks:
-      - labor_infrastructure
-    env_file:
-      - .env
   data:
     restart: 'no'
     container_name: ${COMPOSE_PROJECT_NAME}-data
     image: ubuntu
     volumes:
       - ${APP_DATA_DIR}:/var/www/html_data
-    networks:
-      - labor_infrastructure
-  import:
-    restart: 'no'
-    container_name: ${COMPOSE_PROJECT_NAME}-import
-    image: ${DOCKER_BASE_URL}/labor-dev-import:latest
-    depends_on:
-      - mysql
-      - data
-    env_file:
-      - .env
-    environment:
-      - APP_MYSQL_HOST=${COMPOSE_PROJECT_NAME}-mysql
-      - MYSQL_PORT=3306
-    volumes:
-      - ${APP_IMPORT_DIR}:/var/www/html_import
-    volumes_from:
-      - data
     networks:
       - labor_infrastructure
 

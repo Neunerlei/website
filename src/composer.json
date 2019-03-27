@@ -1,14 +1,14 @@
 {
-	"name": "labor/private-neunerlei-neunerlei.de",
+	"name": "labor/private-neunerlei-neunerlei.com",
 	"description": "LABOR App Boilerplate",
 	"homepage": "https://www.labor.digital",
 	"type": "project",
 	"license": "Apache-2.0",
 	"authors": [
 		{
-			"name": "LABOR.digital",
-			"email": "info@labor.digital",
-			"homepage": "https://www.labor.digital"
+			"name": "Martin Neundorfer",
+			"email": "martin@richtig.so",
+			"homepage": "https://www.neunerlei.com"
 		}
 	],
 	"require": {

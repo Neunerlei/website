@@ -14,8 +14,8 @@
 # src/tmp
 # src/logs
 # src/diskfiles
-# src/vendor
-# src/node_modules
+src/vendor
+src/node_modules
 
 # IDEA Code Style
 .idea/*
