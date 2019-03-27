@@ -1,0 +1,128 @@
+clone:
+  depth: 1
+
+definitions:
+  caches:
+    node-custom: src/node_modules
+
+pipelines:
+  custom:
+    composerInstall:
+      -
+        step: &composerInstall
+          image:
+            name: 848331400135.dkr.ecr.eu-central-1.amazonaws.com/labor-prod-pipelines:composer-install
+            aws:
+              access-key: $AWS_ACCESS_KEY_ID
+              secret-key: $AWS_SECRET_ACCESS_KEY
+          name: Composer Install
+          caches:
+            - composer
+          script:
+            - export COMPOSER_INSTALL_SSH_KEY=$BITBUCKET_DEFAULT_SSH_KEY
+            - export COMPOSER_INSTALL_KNOWN_HOSTS=$BITBUCKET_DEFAULT_KNOWN_HOSTS
+            - export COMPOSER_INSTALL_SOURCE_DIR=$BITBUCKET_CLONE_DIR/src
+            - export COMPOSER_INSTALL_DESTINATION_DIR=$BITBUCKET_CLONE_DIR/src
+            - export COMPOSER_INSTALL_WORKING_DIR=/var/www/html
+            - source /opt/composer-install.sh
+          # @TODO Add your own artifacts here
+          artifacts:
+            - src/vendor/**
+    buildAssets:
+      -
+        step: &buildAssets
+          image:
+            name: 848331400135.dkr.ecr.eu-central-1.amazonaws.com/labor-prod-pipelines:npm-run-build
+            aws:
+              access-key: $AWS_ACCESS_KEY_ID
+              secret-key: $AWS_SECRET_ACCESS_KEY
+          name: Build Assets
+          caches:
+            - node-custom
+          script:
+            - export NPM_RUN_BUILD_REGISTRY_URL=$NPM_DEFAULT_REGISTRY_URL
+            - export NPM_RUN_BUILD_REGISTRY_EMAIL=$NPM_DEFAULT_REGISTRY_EMAIL
+            - export NPM_RUN_BUILD_REGISTRY_USER=$NPM_DEFAULT_REGISTRY_USER
+            - export NPM_RUN_BUILD_REGISTRY_PW=$NPM_DEFAULT_REGISTRY_PW
+            - export NPM_RUN_BUILD_WORKING_DIR=$BITBUCKET_CLONE_DIR/src
+            - source /opt/npm-run-build.sh
+          # @TODO Add your own artifacts here
+          artifacts:
+          #   - src/webroot/frontend/dist/css/bundle.css
+          #   - src/webroot/frontend/dist/bundle.js
+    injectAwsEcsStartupScript:
+      -
+        step: &injectAwsEcsStartupScript
+          image:
+            name: 848331400135.dkr.ecr.eu-central-1.amazonaws.com/labor-prod-pipelines:inject-aws-ecs-startup-script
+            aws:
+              access-key: $AWS_ACCESS_KEY_ID
+              secret-key: $AWS_SECRET_ACCESS_KEY
+          name: Inject AWS ECS Startup Script
+          script:
+            - export INJECT_AWS_ECS_STARTUP_SCRIPT_SSH_KEY=$BITBUCKET_DEFAULT_SSH_KEY
+            - export INJECT_AWS_ECS_STARTUP_SCRIPT_KNOWN_HOSTS=$BITBUCKET_DEFAULT_KNOWN_HOSTS
+            - export INJECT_AWS_ECS_STARTUP_SCRIPT_GIT_INFRASTRUCTURE=$PROJECT_GIT_INFRASTRUCTURE
+            - source /opt/inject-aws-ecs-startup-script.sh
+          artifacts:
+            - src/_git_infrastructure/aws_container_fetch_env.sh
+    buildAndPush:
+      -
+        step: &buildAndPush
+          image:
+            name: 848331400135.dkr.ecr.eu-central-1.amazonaws.com/labor-prod-pipelines:build-docker-and-push-ecr
+            aws:
+              access-key: $AWS_ACCESS_KEY_ID
+              secret-key: $AWS_SECRET_ACCESS_KEY
+          name: Build and Push
+          caches:
+            - docker
+          services:
+            - docker
+          script:
+            - export BUILD_AND_PUSH_REGION=$AWS_ECR_DEFAULT_REGION
+            - export BUILD_AND_PUSH_IMAGE=$AWS_ECR_DEFAULT_URL/$PROJECT_NAME:$AWS_ECR_DEFAULT_TAG_PREFIX$BITBUCKET_COMMIT
+            - source /opt/build-docker-and-push-ecr.sh
+    deployToProduction:
+      -
+        step: &deployToProduction
+          image:
+            name: 848331400135.dkr.ecr.eu-central-1.amazonaws.com/labor-prod-pipelines:deploy-docker-to-ecs
+            aws:
+              access-key: $AWS_ACCESS_KEY_ID
+              secret-key: $AWS_SECRET_ACCESS_KEY
+          name: Deploy to production
+          services:
+            - docker
+          trigger: manual
+          deployment: production
+          script:
+            - export DEPLOY_TO_ECS_ECR_REGION=$AWS_ECR_DEFAULT_REGION
+            - export DEPLOY_TO_ECS_ECR_URL=$AWS_ECR_DEFAULT_URL
+            - export DEPLOY_TO_ECS_ECR_IMAGE=$PROJECT_NAME
+            - export DEPLOY_TO_ECS_ECR_TAG=$AWS_ECR_DEFAULT_TAG_PREFIX$BITBUCKET_COMMIT
+            - export DEPLOY_TO_ECS_ECS_REGION=$AWS_ECS_REGION
+            - export DEPLOY_TO_ECS_ECS_TASK=$AWS_ECS_TASK
+            - export DEPLOY_TO_ECS_ECS_CLUSTER=$AWS_ECS_CLUSTER
+            - export DEPLOY_TO_ECS_ECS_SERVICE=$AWS_ECS_SERVICE
+            - source /opt/deploy-docker-to-ecs.sh
+  tags:
+    '*':
+      # @TODO: Uncomment this to enable asset building when committing
+      # -
+      #   parallel:
+      #     -
+      #       step:
+      #         <<: *composerInstall
+      #     -
+      #       step:
+      #         <<: *buildAssets
+      #     -
+      #       step:
+      #         <<: *injectAwsEcsStartupScript
+      -
+        step:
+          <<: *buildAndPush
+      -
+        step:
+          <<: *deployToProduction

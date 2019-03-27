@@ -1,0 +1,24 @@
+{
+	"name": "labor/private-neunerlei-neunerlei.de",
+	"description": "LABOR App Boilerplate",
+	"homepage": "https://www.labor.digital",
+	"type": "project",
+	"license": "Apache-2.0",
+	"authors": [
+		{
+			"name": "LABOR.digital",
+			"email": "info@labor.digital",
+			"homepage": "https://www.labor.digital"
+		}
+	],
+	"require": {
+	},
+	"require-dev": {
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://satis.labor.tools"
+		}
+	]
+}
