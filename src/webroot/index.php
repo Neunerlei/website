@@ -12,6 +12,7 @@
     <link rel="canonical" href="https://www.neunerlei.com" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+	<meta name="google-site-verification" content="jsSiTYqNJfVUgdQFQo5jhlEZMBexZIlcRoPD8Onezsc" />
 </head>
 <body>
     <div class="vertical-center">
