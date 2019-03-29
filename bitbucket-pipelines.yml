@@ -84,7 +84,7 @@ pipelines:
             aws:
               access-key: $AWS_ACCESS_KEY_ID
               secret-key: $AWS_SECRET_ACCESS_KEY
-          name: Release for staging
+          name: Release
           script:
             - export RELEASE_DIR=$BITBUCKET_CLONE_DIR/src
             - source /opt/release.sh --ci-integration --git-push
