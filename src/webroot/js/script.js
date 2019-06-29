@@ -1,13 +1,14 @@
 /**
  * Created by Neunerlei on 8/10/2016.
  */
-$(document).ready(function () {
+
+document.addEventListener('DOMContentLoaded', function () {
 
 	var objects = {
 		// The mail address container
-		"$mailAddress": $("#mail"),
+		"$mailAddress": document.getElementById("mail"),
 		// The phone number container
-		"$phoneNumber": $("#phone")
+		"$phoneNumber": document.getElementById("phone")
 	};
 
 	var methods = {
@@ -18,17 +19,19 @@ $(document).ready(function () {
 			 */
 			"clickableMail": function () {
 				// Check if already clickable
-				if (objects.$mailAddress.find("a").length === 0) {
+				if (objects.$mailAddress.querySelectorAll("a").length === 0) {
 					// Make object clickable...
 					// Get html
-					var mail = objects.$mailAddress.html();
+					var mail = objects.$mailAddress.innerHTML;
 
 					// Remove cryption chars
 					mail = mail.replace(/#at#/, "@").replace(/#dot#/, ".");
 
 					// Build html tag
-					var html = "<a href=\"mailto:" + mail + "\">" + mail + "</a>";
-					objects.$mailAddress.html(html);
+					const node = document.createElement("a");
+					node.setAttribute("href", "mailto:" + mail);
+					node.textContent = mail;
+					objects.$mailAddress.replaceWith(node)
 				}
 			},
 
@@ -37,8 +40,7 @@ $(document).ready(function () {
 			 */
 			"phoneNumber": function () {
 				// Check if already decoded
-				var phoneNumber = objects.$phoneNumber.html().replace(/#/gi, " ");
-				objects.$phoneNumber.html(phoneNumber);
+				objects.$phoneNumber.innerHTML = objects.$phoneNumber.innerHTML.replace(/#/gi, " ");
 			}
 		},
 
@@ -51,4 +53,4 @@ $(document).ready(function () {
 
 	// Init the script
 	methods.init();
-});
+}, false);

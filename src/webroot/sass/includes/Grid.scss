@@ -1,0 +1,71 @@
+/*!
+ * Copyright 2019 LABOR.digital
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Last modified: 2019.06.29 at 13:16
+ */
+
+.container {
+  width: 600px + $margin * 2;
+  box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.43);
+  margin: 80px auto;
+
+  @include bpSmallerThanMd() {
+	width: 300px + $margin *2;
+  }
+
+  @include bpXxs() {
+	width: 100%;
+  }
+}
+
+.grid {
+  @include grid();
+
+  &__item {
+	@include gridItem(12, (gutter: 0 $sassyGutterHorizontal));
+
+	&--defaultHeight {
+	  min-height: 300px;
+
+	  @include bpSmallerThanMd() {
+		min-height: auto;
+	  }
+	}
+
+	&--half {
+	  &Left,
+	  &Right {
+		@include gridItem(6, (gutter: 0 $sassyGutterHorizontal));
+		flex-basis: calc(50% - #{$sassyGutterHorizontal / 2});
+
+		@include bpSmallerThanMd() {
+		  @include gridItem(12, (gutter: 0 $sassyGutterHorizontal));
+		}
+	  }
+
+	  &Left {
+		@include bpMdAndBigger() {
+		  padding-right: 0;
+		}
+	  }
+
+	  &Right {
+		@include bpMdAndBigger() {
+		  padding-left: 0;
+		}
+	  }
+	}
+  }
+}

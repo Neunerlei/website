@@ -1,25 +1,37 @@
 {
-  "name": "@labor/private-neunerlei-neunerlei.com",
-  "author": "Martin Neundorfer",
-  "version": "1.0.0",
-  "description": "LABOR App Boilerplate",
-  "main": "index.js",
-  "scripts": {
-	"build": "labor-asset-building build",
-	"watch": "labor-asset-building watch",
-	"test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-	"type": "git",
-	"url": "git+ssh://git@bitbucket.org/labor-digital/kunde-projekt-app_name.git"
-  },
-  "devDependencies": {
-	"@labor/asset-building": "*"
-  },
-  "labor": {
-	"builderVersion": 2,
-	"apps": []
-  },
-  "license": "Apache-2.0",
-  "homepage": "https://bitbucket.org/labor-digital/kunde-projekt-app_name#readme"
+	"name": "@labor/private-neunerlei-neunerlei.com",
+	"author": "Martin Neundorfer",
+	"version": "1.0.0",
+	"description": "LABOR App Boilerplate",
+	"main": "index.js",
+	"scripts": {
+		"build": "labor-asset-building build",
+		"watch": "labor-asset-building watch",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@bitbucket.org/labor-digital/kunde-projekt-app_name.git"
+	},
+	"devDependencies": {
+		"@labor/asset-building": "*"
+	},
+	"labor": {
+		"builderVersion": 1,
+		"js": [{
+			"entry": "./webroot/js/script.js",
+			"output": "./webroot/dist/scripts.js"
+		}],
+		"css": [
+			{
+				"entry": "./webroot/sass/styles.scss",
+				"output": "./webroot/dist/styles.css"
+			}
+		]
+	},
+	"license": "Apache-2.0",
+	"homepage": "https://bitbucket.org/labor-digital/kunde-projekt-app_name#readme",
+	"dependencies": {
+		"@labor/sassy": "^1.1.0"
+	}
 }

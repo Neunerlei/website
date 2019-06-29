@@ -1,21 +1,14 @@
-// Import compass helpers
-@import "compass/reset";
-@import "compass/css3";
-
-// Import Bootstrap Compass integration
-@import "bootstrap-compass";
-
-// Import custom Bootstrap variables
-@import "bootstrap-variables";
-
-// Import Bootstrap for Sass
-@import "bootstrap";
-
 // Include font awesome
 @import "font-awesome/font-awesome.scss";
 
 // Import variables
-@import "_vars.scss";
+@import "config.scss";
+
+// Import sassy
+@import "~@labor/sassy/Resources";
+@import "~@labor/sassy/Components/CssReset";
 
 // Import main stylesheet
-@import "includes/_main.scss";
+@import "includes/Grid.scss";
+@import "includes/Main.scss";
+@import "includes/Print.scss";
