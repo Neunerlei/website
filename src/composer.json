@@ -11,14 +11,13 @@
 			"homepage": "https://www.neunerlei.com"
 		}
 	],
-	"require": {
-	},
-	"require-dev": {
-	},
+	"require": {},
+	"require-dev": {},
 	"repositories": [
 		{
 			"type": "composer",
 			"url": "https://satis.labor.tools"
 		}
-	]
+	],
+	"version": "1.1.0"
 }
