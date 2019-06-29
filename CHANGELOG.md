@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.3](https://bitbucket.org/labor-digital/kunde-projekt-app_name/branches/compare/v1.1.3%0Dv1.1.2#diff) (2019-06-29)
+
+
+### Bug Fixes
+
+* fix some weired firefox rendering issues ([05a4df7](https://bitbucket.org/labor-digital/kunde-projekt-app_name/commits/05a4df7))
+
+
+
 ## [1.1.2](https://bitbucket.org/labor-digital/kunde-projekt-app_name/branches/compare/v1.1.2%0Dv1.1.1#diff) (2019-06-29)
 
 
