@@ -16,7 +16,7 @@ services:
       - neunerlei-traefik-pooh_webgateway
     labels:
       traefik.enable: "true"
-      traefik.frontend.rule: "Host:neunerlei.com,www.neunerlei.com"
+      traefik.frontend.rule: "Host:neunerlei.eu,www.neunerlei.eu"
 
 networks:
   neunerlei-traefik-pooh_webgateway:
