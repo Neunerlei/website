@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.2](https://bitbucket.org/labor-digital/kunde-projekt-app_name/branches/compare/v1.1.2%0Dv1.1.1#diff) (2019-06-29)
+
+
+### Bug Fixes
+
+* non working prod version ([0a37093](https://bitbucket.org/labor-digital/kunde-projekt-app_name/commits/0a37093))
+
+
+
 ## [1.1.1](https://bitbucket.org/labor-digital/kunde-projekt-app_name/branches/compare/v1.1.1%0Dv1.1.0#diff) (2019-06-29)
 
 
