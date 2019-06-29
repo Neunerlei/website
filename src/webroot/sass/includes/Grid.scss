@@ -37,10 +37,10 @@
 	@include gridItem(12, (gutter: 0 $sassyGutterHorizontal));
 
 	&--defaultHeight {
-	  min-height: 300px;
+	  height: 300px;
 
 	  @include bpSmallerThanMd() {
-		min-height: auto;
+		height: auto;
 	  }
 	}
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Martin Neundorfer | Neunerlei.com</title>
+    <title>Martin Neundorfer | Neunerlei.eu</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href='https://fonts.googleapis.com/css?family=Catamaran:400,700' rel='stylesheet' type='text/css'>
