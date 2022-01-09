@@ -10,7 +10,7 @@ services:
       - .env
     environment:
       - APACHE_LOG_DIR=/var/www/logs
-      - VIRTUAL_HOST=neunerlei.eu
+      - VIRTUAL_HOST=neunerlei.eu,www.neunerlei.eu
       - CERT_NAME=neunerlei.eu
     volumes:
       - ${APP_LOG_DIR}:/var/www/logs
