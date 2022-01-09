@@ -2,10 +2,13 @@ version: '2'
 services:
   app:
     restart: 'no'
-    image: ${DOCKER_BASE_URL}/${DOCKER_BASE_IMAGE}:${DOCKER_BASE_TAG}-dev
+    image: '${DOCKER_BASE_IMAGE}:${DOCKER_BASE_TAG}-dev'
     container_name: ${COMPOSE_PROJECT_NAME}
     depends_on:
       - data
+    ports:
+      - "${APP_IP}:80:80"
+      - "${APP_IP}:443:443"
     env_file:
       - .env
     environment:
@@ -20,17 +23,9 @@ services:
       - ${APP_OPT_DIR}/permissions.sh:/opt/permissions.sh
     volumes_from:
       - data
-    networks:
-      - labor_infrastructure
   data:
     restart: 'no'
     container_name: ${COMPOSE_PROJECT_NAME}-data
     image: ubuntu
     volumes:
       - ${APP_DATA_DIR}:/var/www/html_data
-    networks:
-      - labor_infrastructure
-
-networks:
-  labor_infrastructure:
-    external: true

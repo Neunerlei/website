@@ -10,14 +10,13 @@ services:
       - .env
     environment:
       - APACHE_LOG_DIR=/var/www/logs
+      - VIRTUAL_HOST=neunerlei.eu
+      - CERT_NAME=neunerlei.eu
     volumes:
       - ${APP_LOG_DIR}:/var/www/logs
     networks:
-      - neunerlei-traefik-pooh_webgateway
-    labels:
-      traefik.enable: "true"
-      traefik.frontend.rule: "Host:neunerlei.eu,www.neunerlei.eu"
+      - web_net
 
 networks:
-  neunerlei-traefik-pooh_webgateway:
+  web_net:
     external: true

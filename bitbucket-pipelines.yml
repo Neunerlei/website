@@ -11,24 +11,16 @@ pipelines:
       -
         step: &buildAndPush
           name: Build and Push
-          image:
-            name: 848331400135.dkr.ecr.eu-central-1.amazonaws.com/labor-prod-pipelines:build-docker-and-push-ecr
-            aws:
-              access-key: $AWS_ACCESS_KEY_ID
-              secret-key: $AWS_SECRET_ACCESS_KEY
+          image: labordigital/bitbucket-pipeline-images:build-docker-and-push-ecr
           caches:
             - docker
           services:
             - docker
           script:
-            - chmod +x pipeline/makeProdEnv.sh
-            - source ./pipeline/makeProdEnv.sh
-            - source .env
-            - eval $(aws ecr get-login --region eu-central-1 --no-include-email)
+            - source .env.template
             - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
             - >
               docker build -t "$DOCKER_REPO_NAME:$COMPOSE_PROJECT_NAME"
-              --build-arg DOCKER_BASE_URL=$DOCKER_BASE_URL
               --build-arg DOCKER_BASE_IMAGE=$DOCKER_BASE_IMAGE
               --build-arg DOCKER_BASE_TAG=$DOCKER_BASE_TAG .
             - docker push "$DOCKER_REPO_NAME:$COMPOSE_PROJECT_NAME"
@@ -36,54 +28,19 @@ pipelines:
     deployToProduction:
       -
         step: &deployToProduction
-          image:
-            name: 848331400135.dkr.ecr.eu-central-1.amazonaws.com/labor-prod-pipelines:deployment-tools
-            aws:
-              access-key: $AWS_ACCESS_KEY_ID
-              secret-key: $AWS_SECRET_ACCESS_KEY
+          image: labordigital/bitbucket-pipeline-images:deploy-docker-to-compose-host
           name: Deploy to production
           trigger: manual
           deployment: production
           script:
-            # Build production env
-            - chmod +x pipeline/makeProdEnv.sh
-            - source ./pipeline/makeProdEnv.sh
-            - source .env
-            # Prepare variables
-            - export DEPLOYMENT_ZIP_FILE=deployment-files.zip
-            - export DEPLOYMENT_DIR="/02_docker/"
-            # Build deployment data
-            - zip "$DEPLOYMENT_ZIP_FILE" .env
-            - zip "$DEPLOYMENT_ZIP_FILE" docker-compose.prod.yml
-            - printf "@ docker-compose.prod.yml\n@=docker-compose.yml\n" | zipnote -w "$DEPLOYMENT_ZIP_FILE"
-            # Prepare deployment directory
-            - >
-              ssh $POOH_SSH_USER@$POOH_SSH_SERVER "
-              cd $DEPLOYMENT_DIR &&
-              rm -rf $COMPOSE_PROJECT_NAME &&
-              mkdir $COMPOSE_PROJECT_NAME"
-            # Copy deployment data
-            - scp "$DEPLOYMENT_ZIP_FILE" $POOH_SSH_USER@$POOH_SSH_SERVER:"$DEPLOYMENT_DIR$COMPOSE_PROJECT_NAME"
-            # Execute deployment
-            - >
-              ssh $POOH_SSH_USER@$POOH_SSH_SERVER "
-              cd $DEPLOYMENT_DIR &&
-              cd $COMPOSE_PROJECT_NAME &&
-              unzip $DEPLOYMENT_ZIP_FILE &&
-              rm $DEPLOYMENT_ZIP_FILE &&
-              docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD &&
-              docker-compose pull &&
-              docker-compose up -d"
+            - export DEPLOY_SSH_HOST=$DEPLOY_DEFAULT_SSH_HOST
+            - source /opt/deploy-docker-to-compose-host.sh
   
   branches:
     master:
       -
         step:
-          image:
-            name: 848331400135.dkr.ecr.eu-central-1.amazonaws.com/labor-prod-pipelines:conventional-release
-            aws:
-              access-key: $AWS_ACCESS_KEY_ID
-              secret-key: $AWS_SECRET_ACCESS_KEY
+          image: labordigital/bitbucket-pipeline-images:conventional-release
           name: Release
           script:
             - export RELEASE_DIR=$BITBUCKET_CLONE_DIR/src

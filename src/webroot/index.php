@@ -83,7 +83,7 @@
 				<div class="box box--colorD">
 					<h3>Was ich kann?</h3>
 					<p>
-						Was man halt so können muss (keine bestimmte Ordnung): PHP, Javascript, Typescript, Vue.js, Node, TYPO3, CakePHP, CSS, SASS, LESS, Docker(Compose), Webpack, AWS, API's, GraphQL, Linux(Ubuntu) &hellip;
+						Was man halt so können muss (keine bestimmte Ordnung): PHP, Javascript, Typescript, Vue.js, Node, TYPO3, CakePHP, CSS, SASS, OOP, Docker(Compose), Webpack, AWS, API's, GraphQL, Linux(Ubuntu) &hellip;
 					</p>
 				</div>
 			</div>
