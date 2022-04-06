@@ -7,6 +7,19 @@ definitions:
 
 pipelines:
   custom:
+    buildAssets:
+      -
+        step: &buildAssets
+          image: labordigital/bitbucket-pipeline-images:node-14-environment
+          name: Build Assets
+          caches:
+            - node-custom
+          script:
+            - export NODE_WORKING_DIR=$BITBUCKET_CLONE_DIR/src
+            - source /opt/npm-run-script.sh build
+          artifacts:
+            - src/webroot/dist/**
+  
     buildAndPush:
       -
         step: &buildAndPush
@@ -38,6 +51,9 @@ pipelines:
   
   branches:
     master:
+      -
+        step:
+          <<: *buildAssets
       -
         step:
           image: labordigital/bitbucket-pipeline-images:conventional-release
