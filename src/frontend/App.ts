@@ -1,18 +1,33 @@
-/**
- * Created by Neunerlei on 8/10/2016.
+/*
+ * Copyright 2022 Martin Neundorfer (Neunerlei)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Last modified: 2022.04.06 at 11:42
  */
+import './App.sass';
 
 document.addEventListener('DOMContentLoaded', function () {
-
+	
 	var objects = {
 		// The mail address container
-		"$mailAddress": document.getElementById("mail"),
+		"$mailAddress": document.getElementById("mail")!,
 		// The phone number container
-		"$phoneNumber": document.getElementById("phone")
+		"$phoneNumber": document.getElementById("phone")!
 	};
-
+	
 	var methods = {
-
+		
 		"decrypter": {
 			/**
 			 * Removes "anti-bot-chars" from mail address
@@ -23,10 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
 					// Make object clickable...
 					// Get html
 					var mail = objects.$mailAddress.innerHTML;
-
+					
 					// Remove cryption chars
 					mail = mail.replace(/#at#/, "@").replace(/#dot#/, ".");
-
+					
 					// Build html tag
 					const node = document.createElement("a");
 					node.setAttribute("href", "mailto:" + mail);
@@ -34,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					objects.$mailAddress.replaceWith(node)
 				}
 			},
-
+			
 			/**
 			 * Removes "anti-bot-chars" from phone number
 			 */
@@ -43,14 +58,14 @@ document.addEventListener('DOMContentLoaded', function () {
 				objects.$phoneNumber.innerHTML = objects.$phoneNumber.innerHTML.replace(/#/gi, " ");
 			}
 		},
-
+		
 		"init": function () {
 			// "Decrypt" Mail address and phone number
 			methods.decrypter.clickableMail();
 			methods.decrypter.phoneNumber();
 		}
 	};
-
+	
 	// Init the script
 	methods.init();
 }, false);

@@ -1,7 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="LABOR">
+  <settings>
     <module2copyright>
-      <element module="All" copyright="LABOR" />
+      <element module="All" copyright="Neunerlei" />
     </module2copyright>
   </settings>
 </component>

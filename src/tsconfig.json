@@ -1,0 +1,57 @@
+{
+	"compilerOptions": {
+		// Output settings.
+		"outDir": "dist",
+		"charset": "utf-8",
+		"newLine": "LF",
+		// Transpilation settings.
+		"module": "esnext",
+		"target": "es5",
+		"pretty": true,
+		"experimentalDecorators": true,
+		// Module settings.
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"isolatedModules": false,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		// Strictness and quality settings.
+		"alwaysStrict": true,
+		"forceConsistentCasingInFileNames": true,
+		//		"importsNotUsedAsValues": "error",
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"strict": true,
+		"noImplicitAny": false,
+		"noImplicitThis": true,
+		"noImplicitReturns": true,
+		"suppressImplicitAnyIndexErrors": true,
+		// Type-checking settings.
+		"lib": [
+			"dom",
+			"es6",
+			"es5",
+			"es2015.promise",
+			"es2015",
+			"es2016",
+			"es2017",
+			"es2015.symbol.wellknown",
+			"es2015.symbol",
+			"es2015.iterable",
+			"esnext",
+			"es2018"
+		],
+		"skipDefaultLibCheck": true,
+		"skipLibCheck": true,
+		// Type declaration settings.
+		"declaration": true,
+		"declarationMap": false
+	},
+	"exclude": [
+		"node_modules"
+	],
+	"include": [
+		"frontend/**/*"
+	]
+}

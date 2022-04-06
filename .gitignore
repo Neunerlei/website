@@ -7,6 +7,7 @@
 .env.app
 .unison*
 perms.set
+src/webroot/dist
 
 # TODO:
 # Be sure to place all directories here, which are downloaded through composer, contain temporary data, uploaded user data, or any other stuff which does not belong to the source code itself.

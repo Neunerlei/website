@@ -5,41 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href='https://fonts.googleapis.com/css?family=Catamaran:400,700' rel='stylesheet' type='text/css'>
-    <link href="dist/styles.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="dist/scripts.js"></script>
+    <link href="dist/css/bundle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="dist/bundle.js"></script>
     <link rel="canonical" href="https://www.neunerlei.eu" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-	<meta name="google-site-verification" content="jsSiTYqNJfVUgdQFQo5jhlEZMBexZIlcRoPD8Onezsc" />
 </head>
 <body>
 	<div class="container">
 		<div class="grid">
-			<div class="grid__item print">
-				<img class="print__logo" src="images/martin-neundorfer-logo-mobile-20160801.png" alt="Logo">
-				<img class="print__portrait" src="images/photo-martin-neundorfer-richtig-so-20160801.jpg" alt="Portrait Martin Neundorfer">
-			</div>
-			<div class="grid__item noPrint">
-				<div class="mobileLogo">
-					<div class="mobileLogo__logo" title="Martin Neundorfer"></div>
-				</div>
-			</div>
-			<div class="grid__item grid__item--defaultHeight noPrint">
-				<div class="portrait">
-					<div class="portrait__logo" title="Martin Neundorfer"></div>
-				</div>
+			<div class="grid__item grid__item--portrait">
+				<picture class="portrait">
+					<source srcset="/images/photo-martin-neundorfer-neunerlei-mobile-20200406.jpg" media="(max-width: 800px)">
+					<source srcset="/images/photo-martin-neundorfer-neunerlei-20200406.jpg" media="(min-width: 800px)">
+					<img src="/images/photo-martin-neundorfer-neunerlei-20200406.jpg" alt="Portrait von Martin Neundorfer">
+				</picture>
+				<picture class="portrait__logo">
+					<source srcset="/images/martin-neundorfer-logo-mobile-20160801.png" media="(max-width: 800px)">
+					<source srcset="/images/martin-neundorfer-logo-desktop-20160801.png" media="(min-width: 800px)">
+					<img src="/images/martin-neundorfer-logo-desktop-20160801.png" alt="Portrait von Martin Neundorfer">
+				</picture>
 			</div>
 			<div class="grid__item grid__item--halfLeft grid__item--defaultHeight">
 				<div class="box box--colorC">
 					<h3>Wer ich bin?</h3>
 					<p>
-						Guten Tag! Ich heiße Martin, bin <?= date("Y") - 1988; ?> Jahre alt und lebe in Mainz.
+						Guten Tag! Ich heiße Martin, bin <?= date("Y") - 1988 ?> Jahre alt und lebe in Mainz.
 					</p>
 					<p>
-						Als Kind wollte ich immer Erfinder werden; heute bin ich Web-Entwickler im <a href="https://labor.digital" target="_blank" rel="noopener">LABOR</a>.
+						Als Kind wollte ich immer Erfinder werden; heute bin ich Web-Entwickler und <a href="https://github.com/neunerlei" target="_blank" rel="noopener">erfinde Dinge</a>.
 					</p>
 					<p>
-						Ist doch ganz nah dran, am Kindheitstraum <span class="cool"></span>
+						Ist doch nah dran, am Kindheitstraum <span class="cool"></span>
 					</p>
 				</div>
 			</div>
@@ -64,11 +61,14 @@
 			<div class="grid__item grid__item--defaultHeight grid__item--halfLeft">
 				<div class="box box--colorA">
 					<h3>Internetz</h3>
-					<p class="narrow">Die Weiten des Netzes sind, wie es so schön heißt unergründlich.
+					<p class="narrow">Die Weiten des Netzes sind, wie es so schön heißt, unergründlich.
 						Damit wir uns trotzdem finden, wie wäre es mit ein paar Links?</p>
 					<ul class="socialLinks">
 						<li class="socialLinks__item">
 							<a href="https://www.xing.com/profile/Martin_Neundorfer" rel="noopener" target="_blank" class="fa fa-xing" title="Xing"></a>
+						</li>
+						<li class="socialLinks__item">
+							<a href="https://github.com/neunerlei" rel="noopener" target="_blank" class="fa fa-github" title="Github"></a>
 						</li>
 						<li class="socialLinks__item">
 							<a href="https://twitter.com/neunerlei" rel="noopener" target="_blank" class="fa fa-twitter" title="Twitter"></a>
