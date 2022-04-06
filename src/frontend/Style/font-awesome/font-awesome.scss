@@ -4,15 +4,20 @@
  */
 
 @import "variables";
-@import "mixins";
-@import "path";
-@import "core";
-@import "larger";
-@import "fixed-width";
-@import "list";
-@import "bordered-pulled";
-@import "animated";
-@import "rotated-flipped";
-@import "stacked";
-@import "icons";
-@import "screen-reader";
+//@import "mixins";
+//@import "path";
+//@import "core";
+//@import "larger";
+//@import "fixed-width";
+//@import "list";
+//@import "bordered-pulled";
+//@import "animated";
+//@import "rotated-flipped";
+//@import "stacked";
+//@import "icons";
+//@import "screen-reader";
+
+.#{$fa-css-prefix}-twitter:before { content: $fa-var-twitter; }
+.#{$fa-css-prefix}-xing:before { content: $fa-var-xing; }
+.#{$fa-css-prefix}-vimeo:before { content: $fa-var-vimeo; }
+.#{$fa-css-prefix}-github:before { content: $fa-var-github; }

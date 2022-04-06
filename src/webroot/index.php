@@ -4,32 +4,42 @@
     <title>Martin Neundorfer | Neunerlei.eu</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href='https://fonts.googleapis.com/css?family=Catamaran:400,700' rel='stylesheet' type='text/css'>
     <link href="dist/css/bundle.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="dist/bundle.js"></script>
     <link rel="canonical" href="https://www.neunerlei.eu" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+	
+	<meta name="description" content="Guten Tag! Ich heiße Martin, bin <?= date("Y") - 1988 ?> Jahre alt und lebe in Mainz.">
+	
 	<meta property="og:title" content="Martin Neundorfer">
 	<meta property="og:site_name" content="Neunerlei.eu">
 	<meta property="og:url" content="https://neunerlei.eu">
 	<meta property="og:description" content="Guten Tag! Ich heiße Martin, bin <?= date("Y") - 1988 ?> Jahre alt und lebe in Mainz.">
 	<meta property="og:type" content="profile">
 	<meta property="og:image" content="https://neunerlei.eu/images/photo-martin-neundorfer-neunerlei-mobile-20200406.jpg">
+	
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="neunerlei.eu">
+	<meta property="twitter:url" content="https://www.neunerlei.eu/">
+	<meta name="twitter:title" content="Martin Neundorfer">
+	<meta name="twitter:description" content="Guten Tag! Ich heiße Martin, bin <?= date("Y") - 1988 ?> Jahre alt und lebe in Mainz.">
+	<meta name="twitter:image" content="https://neunerlei.eu/images/photo-martin-neundorfer-neunerlei-mobile-20200406.jpg">
+
 </head>
 <body>
 	<div class="container">
 		<div class="grid">
 			<div class="grid__item grid__item--portrait">
 				<picture class="portrait">
-					<source srcset="/images/photo-martin-neundorfer-neunerlei-mobile-20200406.jpg" media="(max-width: 800px)">
-					<source srcset="/images/photo-martin-neundorfer-neunerlei-20200406.jpg" media="(min-width: 800px)">
+					<source srcset="/images/photo-martin-neundorfer-neunerlei-mobile-20200406.jpg" media="print, (max-width: 800px)">
+					<source srcset="/images/photo-martin-neundorfer-neunerlei-20200406.jpg" media="only screen and (min-width: 800px)">
 					<img src="/images/photo-martin-neundorfer-neunerlei-20200406.jpg" alt="Portrait von Martin Neundorfer">
 				</picture>
 				<picture class="portrait__logo">
-					<source srcset="/images/martin-neundorfer-logo-mobile-20160801.png" media="(max-width: 800px)">
-					<source srcset="/images/martin-neundorfer-logo-desktop-20160801.png" media="(min-width: 800px)">
-					<img src="/images/martin-neundorfer-logo-desktop-20160801.png" alt="Portrait von Martin Neundorfer">
+					<source srcset="/images/martin-neundorfer-logo-mobile-20160801.png" media="print, (max-width: 800px)">
+					<source srcset="/images/martin-neundorfer-logo-desktop-20160801.png" media="screen and (min-width: 800px)">
+					<img src="/images/martin-neundorfer-logo-desktop-20160801.png" alt="Martin Neundorfer">
 				</picture>
 			</div>
 			<div class="grid__item grid__item--halfLeft grid__item--defaultHeight">

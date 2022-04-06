@@ -1,5 +1,5 @@
 /*!
- * Copyright 2019 LABOR.digital
+ * Copyright 2022 Martin Neundorfer (Neunerlei)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2019.06.29 at 14:52
+ * Last modified: 2019.06.29 at 15:00
  */
 
 @include printOnly() {
@@ -28,16 +28,6 @@
 
   .noPrint {
 	display: none;
-  }
-
-  .print {
-	&__logo {
-	  margin-bottom: 20px;
-	}
-
-	&__portrait {
-	  width: 100%;
-	}
   }
 
   .grid__item--defaultHeight {
