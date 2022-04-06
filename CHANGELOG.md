@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.2](https://bitbucket.org/datenknoten/neunerlei-website/compare/v1.2.1...v1.2.2) (2022-04-06)
+
+
+### Bug Fixes
+
+* fix mobile horizontal scrolling issues ([4982c14](https://bitbucket.org/datenknoten/neunerlei-website/commits/4982c14d0d1af7d0343a1370e13a677aff6e7da9))
+
+
+
 ## [1.2.1](https://bitbucket.org/datenknoten/neunerlei-website/compare/v1.2.0...v1.2.1) (2022-04-06)
 
 
