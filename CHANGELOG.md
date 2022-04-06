@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.1](https://bitbucket.org/datenknoten/neunerlei-website/compare/v1.2.0...v1.2.1) (2022-04-06)
+
+
+### Bug Fixes
+
+* remove external dependencies ([41db339](https://bitbucket.org/datenknoten/neunerlei-website/commits/41db3394c40284ba922905fa5e3e1d49b585d5b0))
+
+
+
 # [1.2.0](https://bitbucket.org/datenknoten/neunerlei-website/compare/v1.1.6...v1.2.0) (2022-04-06)
 
 
