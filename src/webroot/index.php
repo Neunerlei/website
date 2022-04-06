@@ -10,6 +10,12 @@
     <link rel="canonical" href="https://www.neunerlei.eu" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+	<meta property="og:title" content="Martin Neundorfer">
+	<meta property="og:site_name" content="Neunerlei.eu">
+	<meta property="og:url" content="https://neunerlei.eu">
+	<meta property="og:description" content="Guten Tag! Ich heiße Martin, bin <?= date("Y") - 1988 ?> Jahre alt und lebe in Mainz.">
+	<meta property="og:type" content="profile">
+	<meta property="og:image" content="https://neunerlei.eu/images/photo-martin-neundorfer-neunerlei-mobile-20200406.jpg">
 </head>
 <body>
 	<div class="container">
