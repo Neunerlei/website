@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.6](https://bitbucket.org/datenknoten/neunerlei-website/compare/v1.1.5...v1.1.6) (2022-04-06)
+
+
+### Bug Fixes
+
+* rebuild with new version ([c58067e](https://bitbucket.org/datenknoten/neunerlei-website/commits/c58067ec2e9583fa0e2d627cbb80be2da6b1efd0))
+
+
+
 ## [1.1.5](https://bitbucket.org/labor-digital/kunde-projekt-app_name/compare/v1.1.4...v1.1.5) (2022-01-09)
 
 

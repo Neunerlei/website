@@ -1,7 +1,7 @@
 {
 	"name": "@labor/private-neunerlei-website",
 	"author": "Martin Neundorfer",
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"main": "index.js",
 	"scripts": {
 		"build": "assets",
@@ -10,10 +10,12 @@
 		"analyze": "assets analyze"
 	},
 	"labor": {
-		"apps": [{
-			"entry": "./frontend/App.ts",
-			"output": "./webroot/dist/bundle.js"
-		}]
+		"apps": [
+			{
+				"entry": "./frontend/App.ts",
+				"output": "./webroot/dist/bundle.js"
+			}
+		]
 	},
 	"license": "Apache-2.0",
 	"devDependencies": {
