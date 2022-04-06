@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.5](https://bitbucket.org/labor-digital/kunde-projekt-app_name/compare/v1.1.4...v1.1.5) (2022-01-09)
+
+
+### Bug Fixes
+
+* add missing www. domain ([f13c191](https://bitbucket.org/labor-digital/kunde-projekt-app_name/commits/f13c1914ce24b4f267600c8089c2579314e3bf2d))
+* fix website domain ([e7d1b20](https://bitbucket.org/labor-digital/kunde-projekt-app_name/commits/e7d1b200536a00ce3da6a388977d35d97e728fdb))
+
+
+
 ## [1.1.4](https://bitbucket.org/labor-digital/kunde-projekt-app_name/compare/v1.1.3...v1.1.4) (2022-01-09)
 
 
