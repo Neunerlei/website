@@ -17,6 +17,7 @@
  */
 
 .container {
+  position: relative;
   width: 600px + $margin * 2;
   box-shadow: 0 0 25px 0 rgba(0,0,0,0.43);
   margin: 80px auto;
@@ -28,7 +29,7 @@
   @include bpSmallerThanSm() {
 	margin-top: 0;
 	margin-bottom: 0;
-	width: 100%;
+	width: calc(100% - #{$margin} * 2);
 	box-shadow: none;
   }
 }
@@ -37,7 +38,11 @@
   @include grid();
 
   &__item {
-	@include gridItem(12, (usePadding: true));
+	@include gridItem(12);
+
+	@include bpXsAndSmaller(){
+	  @include gridItem(12, (gutter: 0));
+	}
 
 	&--defaultHeight {
 	  height: 300px;
@@ -54,24 +59,15 @@
 	}
 
 	&--half {
-	  &Left,
-	  &Right {
-		@include gridItem(6, (usePadding: true));
-
-		@include bpSmallerThanMd() {
-		  @include gridItem(12, (usePadding: true));
-		}
-	  }
-
 	  &Left {
 		@include bpMdAndBigger() {
-		  padding-right: 0;
+			@include gridItem(6, (gutter: (right: 0)));
 		}
 	  }
 
 	  &Right {
 		@include bpMdAndBigger() {
-		  padding-left: 0;
+		  @include gridItem(6, (gutter: (left: 0)));
 		}
 	  }
 	}
