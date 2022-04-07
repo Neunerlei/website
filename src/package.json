@@ -1,7 +1,7 @@
 {
 	"name": "@labor/private-neunerlei-website",
 	"author": "Martin Neundorfer",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"main": "index.js",
 	"scripts": {
 		"build": "assets",
