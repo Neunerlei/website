@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.3](https://bitbucket.org/datenknoten/neunerlei-website/compare/v1.2.2...v1.2.3) (2022-04-07)
+
+
+### Bug Fixes
+
+* re-add font-awesome fontface ([a717c78](https://bitbucket.org/datenknoten/neunerlei-website/commits/a717c78382619d0a89f6e13af72afa93d3f9be48))
+
+
+
 ## [1.2.2](https://bitbucket.org/datenknoten/neunerlei-website/compare/v1.2.1...v1.2.2) (2022-04-06)
 
 
