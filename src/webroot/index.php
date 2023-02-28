@@ -1,3 +1,4 @@
+<?php $age = (new DateTime('now'))->diff(new DateTime('1988-02-14'))->y ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -10,12 +11,12 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 	
-	<meta name="description" content="Guten Tag! Ich heiße Martin, bin <?= date("Y") - 1988 ?> Jahre alt und lebe in Mainz.">
+	<meta name="description" content="Guten Tag! Ich heiße Martin, bin <?= $age ?> Jahre alt und mache Sachen.">
 	
 	<meta property="og:title" content="Martin Neundorfer">
 	<meta property="og:site_name" content="Neunerlei.eu">
 	<meta property="og:url" content="https://neunerlei.eu">
-	<meta property="og:description" content="Guten Tag! Ich heiße Martin, bin <?= date("Y") - 1988 ?> Jahre alt und lebe in Mainz.">
+	<meta property="og:description" content="Guten Tag! Ich heiße Martin, bin <?= $age ?> Jahre alt und mache Sachen.">
 	<meta property="og:type" content="profile">
 	<meta property="og:image" content="https://neunerlei.eu/images/photo-martin-neundorfer-neunerlei-mobile-20200406.jpg">
 	
@@ -23,7 +24,7 @@
 	<meta property="twitter:domain" content="neunerlei.eu">
 	<meta property="twitter:url" content="https://www.neunerlei.eu/">
 	<meta name="twitter:title" content="Martin Neundorfer">
-	<meta name="twitter:description" content="Guten Tag! Ich heiße Martin, bin <?= date("Y") - 1988 ?> Jahre alt und lebe in Mainz.">
+	<meta name="twitter:description" content="Guten Tag! Ich heiße Martin, bin <?= $age ?> Jahre und mache Sachen.">
 	<meta name="twitter:image" content="https://neunerlei.eu/images/photo-martin-neundorfer-neunerlei-mobile-20200406.jpg">
 
 </head>
@@ -46,7 +47,7 @@
 				<div class="box box--colorC">
 					<h3>Wer ich bin?</h3>
 					<p>
-						Guten Tag! Ich heiße Martin, bin <?= date("Y") - 1988 ?> Jahre alt und lebe in Mainz.
+						Guten Tag! Ich heiße Martin, bin <?= $age ?> Jahre alt und mache Sachen.
 					</p>
 					<p>
 						Als Kind wollte ich immer Erfinder werden; heute bin ich Web-Entwickler und <a href="https://github.com/neunerlei" target="_blank" rel="noopener">erfinde Dinge</a>.
@@ -61,8 +62,8 @@
 					<h3>Kontakt</h3>
 					<p>
 						<span class="subheadline">Brieftaube:</span><br>
-						Walpodenstraße 1<br>
-						55116 Mainz
+						Robert-Koch-Straße 9<br>
+						67823 Obermoschel
 					</p>
 					<p>
 						<span class="subheadline">Digitale Brieftaube:</span><br>
