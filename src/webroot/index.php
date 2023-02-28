@@ -88,9 +88,6 @@
 							<a href="https://github.com/neunerlei" rel="noopener" target="_blank" class="fa fa-github" title="Github"></a>
 						</li>
 						<li class="socialLinks__item">
-							<a href="https://twitter.com/neunerlei" rel="noopener" target="_blank" class="fa fa-twitter" title="Twitter"></a>
-						</li>
-						<li class="socialLinks__item">
 							<a href="https://vimeo.com/neunerlei" rel="noopener" target="_blank" class="fa fa-vimeo" title="Vimeo"></a>
 						</li>
 					</ul>
