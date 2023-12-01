@@ -1,6 +1,3 @@
-# private-neunerlei-neunerlei.com - Readme
+# neunerlei.eu
 
-All setup.
-Start coding in src/
-
-
+This is the source code of my personal website.

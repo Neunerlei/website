@@ -1,0 +1,11 @@
+name: env
+help: Environment Control application
+version: 1.0.0
+
+commands:
+  -   name: build
+      help: start a node container and build the selected resources
+  -   name: dev
+      help: start a node container and start watching the selected resources
+  -   name: ssh
+      help: start a node container and open an ssh terminal in it
